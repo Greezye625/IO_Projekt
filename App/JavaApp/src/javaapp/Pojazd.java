@@ -10,31 +10,58 @@ package javaapp;
  * @author greezye
  */
 public class Pojazd {
-    
+
+    private String identyfikator;
     private String marka;
     private String model;
     private int rokProdukcji;
     private int przebieg;
-    private int pojemnoscSilnika;
+    private float pojemnoscSilnika;
     private int pojemnoscBaku;
-    private boolean czyWypozyczony;
+    private boolean Wypozyczony;
     private float sredniaOcena;
     private float dodatkowaCenaWypozyczenia;
 
-    public Pojazd(String marka, String model, int rokProdukcji, int przebieg, int pojemnoscSilnika, int pojemnoscBaku, boolean czyWypozyczony, float sredniaOcena, float dodatkowaCenaWypozyczenia) {
+    public Pojazd(String identyfikator, String marka, String model, int rokProdukcji, int przebieg, float pojemnoscSilnika, int pojemnoscBaku, boolean Wypozyczony, float sredniaOcena, float dodatkowaCenaWypozyczenia) {
+        this.identyfikator = identyfikator;
         this.marka = marka;
         this.model = model;
         this.rokProdukcji = rokProdukcji;
         this.przebieg = przebieg;
         this.pojemnoscSilnika = pojemnoscSilnika;
         this.pojemnoscBaku = pojemnoscBaku;
-        this.czyWypozyczony = czyWypozyczony;
+        this.Wypozyczony = Wypozyczony;
         this.sredniaOcena = sredniaOcena;
         this.dodatkowaCenaWypozyczenia = dodatkowaCenaWypozyczenia;
     }
-    
+
+    public void printOpis(){
+        System.out.println("------------------------");
+        System.out.printf("Pojazd id. %s \n", this.identyfikator);
+        System.out.format("%s %s %dr \n",this.marka,this.model,this.rokProdukcji);
+        System.out.printf("Przebieg %dkm \n", this.przebieg);
+        System.out.printf("Silnik %.1fL \n", this.pojemnoscSilnika);
+        System.out.printf("Pojemnosc baku %dL \n", this.pojemnoscBaku);
+        if(this.Wypozyczony){
+            System.out.println("Niedostepny");
+        }
+        else{
+            System.out.println("Dostepny");
+        }
+        System.out.printf("Ocena %.1f\n",this.sredniaOcena);
+        System.out.printf("Dodatkowa cena wypozyczenia: %.2fzl\n",this.dodatkowaCenaWypozyczenia);
+    }
+
     public void ocenieniePojazdu(){
         
+    }
+
+    public String getIdentyfikator() {
+        return identyfikator;
+    }
+
+    public void setIdentyfikator(String identyfikator) {
+        this.identyfikator = identyfikator;
     }
 
     public String getMarka() {
@@ -69,7 +96,7 @@ public class Pojazd {
         this.przebieg = przebieg;
     }
 
-    public int getPojemnoscSilnika() {
+    public float getPojemnoscSilnika() {
         return pojemnoscSilnika;
     }
 
@@ -85,12 +112,12 @@ public class Pojazd {
         this.pojemnoscBaku = pojemnoscBaku;
     }
 
-    public boolean isCzyWypozyczony() {
-        return czyWypozyczony;
+    public boolean isWypozyczony() {
+        return Wypozyczony;
     }
 
-    public void setCzyWypozyczony(boolean czyWypozyczony) {
-        this.czyWypozyczony = czyWypozyczony;
+    public void setWypozyczony(boolean wypozyczony) {
+        this.Wypozyczony = wypozyczony;
     }
 
     public float getSredniaOcena() {

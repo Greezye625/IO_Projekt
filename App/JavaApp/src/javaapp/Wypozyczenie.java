@@ -5,33 +5,50 @@
  */
 package javaapp;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 /**
  *
  * @author greezye
  */
 public class Wypozyczenie {
+
+    private static final float CENA = 50.0f;
+
+    private int identyfikator;
     private float cenaPrognozowana;
-    private String dataRozpoczecia;
-    private String planowanaDataZakonczenia;
-    private String dataZakonczenia;
+    private LocalDate dataRozpoczecia;
+    private LocalDate planowanaDataZakonczenia;
+    private LocalDate dataZakonczenia;
     private boolean czyPojazdUszkodzony;
     private int iloscPaliwa;
     private Klient daneKlienta;
     private Pojazd pojazd;
     private float koncowaOplata;
 
-    public Wypozyczenie(float cenaPrognozowana, String dataRozpoczecia, String planowanaDataZakonczenia, boolean czyPojazdUszkodzony, Klient daneKlienta, Pojazd pojazd) {
-        this.cenaPrognozowana = cenaPrognozowana;
-        this.dataRozpoczecia = dataRozpoczecia;
+    public Wypozyczenie(int identyfikator, LocalDate planowanaDataZakonczenia, Klient daneKlienta, Pojazd pojazd) {
+        this.identyfikator = identyfikator;
         this.planowanaDataZakonczenia = planowanaDataZakonczenia;
-        this.czyPojazdUszkodzony = czyPojazdUszkodzony;
         this.daneKlienta = daneKlienta;
         this.pojazd = pojazd;
     }
 
        
     public void wyliczeniePrognozowanejCeny(){
-        
+        LocalDate aktualna_data = LocalDate.now();
+
+        System.out.printf("Dzisiejsza data %s\n", aktualna_data.toString());
+        System.out.printf("Planowana data zakonczenia %s\n", this.planowanaDataZakonczenia.toString());
+
+        int ilosc_dni_wypozyczenia = ((int) ChronoUnit.DAYS.between(aktualna_data, this.planowanaDataZakonczenia))+1;
+
+        System.out.printf("ilosc dni wypozycenia %d\n ", ilosc_dni_wypozyczenia);
+
+        float cena_prognozowana = (CENA+this.pojazd.getDodatkowaCenaWypozyczenia())*ilosc_dni_wypozyczenia;
+
+        this.setCenaPrognozowana(cena_prognozowana);
+
     }
     
     public void wyliczenieKoncowejCeny(){
@@ -39,7 +56,10 @@ public class Wypozyczenie {
     }
     
     public void rozpoczecieOkresuWypozyczenia(){
-        
+        LocalDate aktualna_data = LocalDate.now();
+        this.setDataRozpoczecia(aktualna_data);
+
+        this.getPojazd().setWypozyczony(true);
     }
     
     public void zakonczenieOkresuWypozyczenia(){
@@ -49,7 +69,19 @@ public class Wypozyczenie {
     public void sprawdzenieStanuPojazdu(){
         
     }
-    
+
+    public static float getCENA() {
+        return CENA;
+    }
+
+    public int getIdentyfikator() {
+        return identyfikator;
+    }
+
+    public void setIdentyfikator(int identyfikator) {
+        this.identyfikator = identyfikator;
+    }
+
     public float getCenaPrognozowana() {
         return cenaPrognozowana;
     }
@@ -58,27 +90,27 @@ public class Wypozyczenie {
         this.cenaPrognozowana = cenaPrognozowana;
     }
 
-    public String getDataRozpoczecia() {
+    public LocalDate getDataRozpoczecia() {
         return dataRozpoczecia;
     }
 
-    public void setDataRozpoczecia(String dataRozpoczecia) {
+    public void setDataRozpoczecia(LocalDate dataRozpoczecia) {
         this.dataRozpoczecia = dataRozpoczecia;
     }
 
-    public String getPlanowanaDataZakonczenia() {
+    public LocalDate getPlanowanaDataZakonczenia() {
         return planowanaDataZakonczenia;
     }
 
-    public void setPlanowanaDataZakonczenia(String planowanaDataZakonczenia) {
+    public void setPlanowanaDataZakonczenia(LocalDate planowanaDataZakonczenia) {
         this.planowanaDataZakonczenia = planowanaDataZakonczenia;
     }
 
-    public String getDataZakonczenia() {
+    public LocalDate getDataZakonczenia() {
         return dataZakonczenia;
     }
 
-    public void setDataZakonczenia(String dataZakonczenia) {
+    public void setDataZakonczenia(LocalDate dataZakonczenia) {
         this.dataZakonczenia = dataZakonczenia;
     }
 
