@@ -35,9 +35,9 @@ public class Aplikacja {
         System.out.print("identyfikator pracownika(PESEL): ");
         String wybrane_id = input.nextLine();
 
-
+//
 //        wybrane_id = "33333333333";
-
+//
 
         for (Pracownik item: pracownicy){
             if (item.getPesel().equals(wybrane_id)){

@@ -29,9 +29,9 @@ public class Pracownik extends Uzytkownik{
         String wybrane_id_klienta = input.nextLine();
         Klient klient = null;
 
-        //
+//
 //        wybrane_id_klienta = "00000000000";
-
+//
 
         for (Klient item: klienci){
             if (item.getPesel().equals(wybrane_id_klienta)){
@@ -64,10 +64,9 @@ public class Pracownik extends Uzytkownik{
         System.out.print("\nWybierz id pojazdu do wypozyczenia: ");
         String wybrane_id_pojazdu = input.nextLine();
 
-
-        //
+//
 //        wybrane_id_pojazdu = "1";
-
+//
 
         //sprawdzenie poprawnosci wybranego id pojazdu
         if(!dostepne_id.contains(wybrane_id_pojazdu)){
@@ -91,9 +90,9 @@ public class Pracownik extends Uzytkownik{
         String wybrana_data_zakonczenia = input.nextLine();
 
 
-        //
+//
 //        wybrana_data_zakonczenia = "2020-01-13";
-
+//
 
         LocalDate planowana_data_zakonczenia = LocalDate.parse(wybrana_data_zakonczenia);
 
