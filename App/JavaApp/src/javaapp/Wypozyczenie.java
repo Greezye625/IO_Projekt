@@ -52,6 +52,12 @@ public class Wypozyczenie {
     }
     
     public int wyliczenieKoncowejCeny(){
+        float kara = 2 * this.pojazd.getDodatkowaCenaWypozyczenia();
+        int spoznienie = ((int) ChronoUnit.DAYS.between(planowanaDataZakonczenia, this.dataZakonczenia))+1;
+        if( dataZakonczenia.compareTo(planowanaDataZakonczenia) > 0 )
+        {
+            koncowaOplata += spoznienie * kara;
+        }
         setKoncowaOplata(this.getCenaPrognozowana());
         return (int)this.getCenaPrognozowana();
     }
