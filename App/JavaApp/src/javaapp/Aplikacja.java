@@ -5,6 +5,7 @@
  */
 package javaapp;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -76,6 +77,23 @@ public class Aplikacja {
     
     public void zamkniecieWypozyczenia(){
         
+
+        System.out.printf("Podaj pesel klienta\n");
+        String pesel = input.nextLine();
+        System.out.print("podaj id wypozyczenia\n");
+        int id = input.nextInt();
+        
+        Wypozyczenie doZamkniecia = null;
+        for(Wypozyczenie wypozyczenie : this.getWypozyczenia())
+        {
+            if( wypozyczenie.getIdentyfikator() == id)
+                doZamkniecia = wypozyczenie;
+            
+        }
+        if(doZamkniecia != null)
+            doZamkniecia.zakonczenieOkresuWypozyczenia();
+        else
+            System.out.println("nie znaleziono wypozyczenia");
     }
     
     public void rezerwacjaPojazdu(){

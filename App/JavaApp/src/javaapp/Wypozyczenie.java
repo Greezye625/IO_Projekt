@@ -51,8 +51,9 @@ public class Wypozyczenie {
 
     }
     
-    public void wyliczenieKoncowejCeny(){
-        
+    public int wyliczenieKoncowejCeny(){
+        setKoncowaOplata(this.getCenaPrognozowana());
+        return (int)this.getCenaPrognozowana();
     }
     
     public void rozpoczecieOkresuWypozyczenia(){
@@ -63,6 +64,13 @@ public class Wypozyczenie {
     }
     
     public void zakonczenieOkresuWypozyczenia(){
+        LocalDate koniec = LocalDate.now();
+        
+        this.setDataZakonczenia(koniec);
+        this.sprawdzenieStanuPojazdu();
+        this.wyliczenieKoncowejCeny();
+        
+        System.out.printf("Do zapłaty %d\n", (int)this.getKoncowaOplata());
         
     }
     

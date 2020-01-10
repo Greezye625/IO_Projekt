@@ -58,7 +58,7 @@ public class JavaApp {
         //---------------------------MENU----------------------------------
         String choice;
         do{
-            System.out.print("\n1.Logowanie\n2.Stworz Wypozyczenie\n0.Exit\n");
+            System.out.print("\n1.Logowanie\n2.Stworz Wypozyczenie\n3.Zakoncz wypozyczenie\n0.Exit\n");
             choice = input.nextLine();
             switch (choice) {
                 case "1": {
@@ -68,6 +68,15 @@ public class JavaApp {
                 case "2": {
                     if(aplikacja.getAktualny_pracownik() != null){
                         aplikacja.stworzenieNowegoWypozyczenia();
+                    }
+                    else{
+                        System.out.println("Najpierw zaloguj sie");
+                    }
+                    break;
+                }
+                case "3": {
+                    if(aplikacja.getAktualny_pracownik() != null){
+                        aplikacja.zamkniecieWypozyczenia();
                     }
                     else{
                         System.out.println("Najpierw zaloguj sie");
