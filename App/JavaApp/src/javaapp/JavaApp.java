@@ -24,9 +24,9 @@ public class JavaApp {
 
         Aplikacja aplikacja = new Aplikacja();
 
-        Klient klient0 = new Klient("Jan", "Kowalski", "00000000000","000000000");
-        Klient klient1 = new Klient("Pawel", "Nowak", "11111111111","111111111");
-        Klient klient2 = new Klient("Michal", "Rodzyn", "22222222222","222222222");
+        Klient klient0 = new Klient("Jan", "Kowalski", "00000000000","000000000", "M");
+        Klient klient1 = new Klient("Pawel", "Nowak", "11111111111","111111111", "M");
+        Klient klient2 = new Klient("Michal", "Rodzyn", "22222222222","222222222", "M");
         ArrayList<Klient> klienci = new ArrayList<>();
         klienci.add(klient0);
         klienci.add(klient1);
