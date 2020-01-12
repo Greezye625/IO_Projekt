@@ -16,6 +16,7 @@ public class Wypozyczenie {
 
     private static final float CENA = 50.0f;
 
+    private static int idWypozyczenia = 0;
     private int identyfikator;
     private float cenaPrognozowana;
     private LocalDate dataRozpoczecia;
@@ -29,6 +30,12 @@ public class Wypozyczenie {
 
     public Wypozyczenie(int identyfikator, LocalDate planowanaDataZakonczenia, Klient daneKlienta, Pojazd pojazd) {
         this.identyfikator = identyfikator;
+        this.planowanaDataZakonczenia = planowanaDataZakonczenia;
+        this.daneKlienta = daneKlienta;
+        this.pojazd = pojazd;
+    }
+    public Wypozyczenie( LocalDate planowanaDataZakonczenia, Klient daneKlienta, Pojazd pojazd) {
+        this.idWypozyczenia++;
         this.planowanaDataZakonczenia = planowanaDataZakonczenia;
         this.daneKlienta = daneKlienta;
         this.pojazd = pojazd;
