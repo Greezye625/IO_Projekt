@@ -1,0 +1,13 @@
+!***< Hidden
+<test page>
+*!
+
+
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\test\classes\
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\classes\
+
+!|Import|
+|testyfitnesse|
+|javaapp|
+
+!|SetUp|

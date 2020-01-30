@@ -1,0 +1,24 @@
+---
+Help: TestDodanieKlienta
+---
+!***< Hidden
+<test page>
+!define TEST_SYSTEM {slim}
+
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\test\classes\
+*!
+!1 My Example !-FitNesse-! Test
+!|Import           |
+|testyfitnesse|
+
+!|TestDodanieKlienta|
+|imie  |nazwisko|pesel        |nrTel      	|plec	|liczba klientow?|
+|Jan   |Czeer   |00112233344	|909808707	|M		|1          |
+|Jacek |Czer    |00112233340  |909808707  	|M		|2          |
+|Janusz|Czr     |00112233349  |909808707  	|M		|3          |
+|Anna   |Czeer   |99112233344	|909808707	|K		|4          |
+|Aga |Kowalska    |99112233340  |909808707  	|K	|5          |
+|Karolina|Nowak     |99112233349  |909808707  	|K		|6          |

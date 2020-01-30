@@ -1,0 +1,18 @@
+!***< Hidden
+<test page>
+!define TEST_SYSTEM {slim}
+
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\test\classes\
+*!
+!1 My Example !-FitNesse-! Test
+!|Import           |
+|testyfitnesse|
+
+!|TestDodanieKlienta|
+|imie  |nazwisko|pesel        |nrTel      	|plec	|liczba kientow?|
+|Jan   |Czeer   |00112233344	|909808707	|M		|1          |
+|Jacek |Czer    |00112233340  |909808707  	|M		|2          |
+|Janusz|Czr     |00112233349  |909808707  	|M		|3          |

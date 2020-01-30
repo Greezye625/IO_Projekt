@@ -1,0 +1,22 @@
+!1 Test suite X
+!contents -R2 -g -p -f -h!contents -R2 -g -p -f -h
+
+
+
+|[[.Suite.SetUp][.Suite.SetUp]] 			| ''Setup''			|
+|[[.Suite.TestDodaniePracownika][.Suite.TestDodaniePracownika]] 			| ''pracownicy''			|
+|[[.Suite.TestDodanieKlienta][.Suite.TestDodanieKlienta]] 			| ''klienci''			|
+|[[.Suite.TestDodaniePojazdow][.Suite.TestDodaniePojazdow]] 			| ''pojazdy''			|
+#|[[.Suite.TestWypozyczenia][.Suite.TestWypozyczenia]] 			| ''wypozyczenia''			|
+
+
+
+!define TEST_SYSTEM {slim}
+
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\test\classes\
+!path C:\Users\jacek\workspace\IO_Projekt\App\JavaApp\build\classes\
+!path C:\Users\jacek\workspace\IO_Projekt\App\Fitnesse\
+!note Release ${FITNESSE_VERSION}
